@@ -24,7 +24,7 @@ OP_RETURN_HEX=$(echo -n "btrust builder 2025" | xxd -p | tr -d '\n')
 # Create the raw transaction using bitcoin-cli
 RAW_TX=$(bitcoin-cli -regtest createrawtransaction \
   "[{\"txid\":\"$TXID\",\"vout\":$VOUT1},{\"txid\":\"$TXID\",\"vout\":$VOUT2}]" \
-  "{\"$RECIPIENT_ADDRESS\":$RECIPIENT_AMOUNT,\"data\":\"$OP_RETURN_HEX\"}")
+  "{\"data\":\"$OP_RETURN_HEX\",\"$RECIPIENT_ADDRESS\":$RECIPIENT_AMOUNT}")
 
 # Output the created raw transaction hex
 echo $RAW_TX
